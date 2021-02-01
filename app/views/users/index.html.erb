@@ -1,0 +1,29 @@
+ <p id="notice"></p>
+   <div class="container px-5 px-sm-0">
+      <div class="row">
+         <%= render 'users/list', book:@book, user:@user %>
+     		<div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table table-hover table-inverse">
+
+  <thead>
+    <tr>
+      <th></th>
+      <th>image</th>
+      <th>name</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+     <tr>
+     <th> </th>
+     <th><%= attachment_image_tag user, :profile_image,:fill,60,60, fallback: "no_image.jpg" %></th>
+     <th><%= user.name %></th>
+     <th><%= link_to "Show", user_path(user.id) %></th>
+     </tr>
+    <% end %>
+    </tbody>
+      </table>
+    </div>
